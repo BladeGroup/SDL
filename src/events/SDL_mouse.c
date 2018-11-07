@@ -795,6 +795,12 @@ ShouldUseRelativeModeWarp(SDL_Mouse *mouse)
     return SDL_GetHintBoolean(SDL_HINT_MOUSE_RELATIVE_MODE_WARP, SDL_FALSE);
 }
 
+static SDL_bool
+RelativeModeShouldShowCursor()
+{
+    return SDL_GetHintBoolean(SDL_HINT_MOUSE_RELATIVE_SHOW_CURSOR, SDL_FALSE);
+}
+
 int
 SDL_SetRelativeMouseMode(SDL_bool enabled)
 {
@@ -1037,7 +1043,7 @@ SDL_SetCursor(SDL_Cursor * cursor)
         }
     }
 
-    if (cursor && mouse->cursor_shown && !mouse->relative_mode) {
+    if (cursor && mouse->cursor_shown && (!mouse->relative_mode || RelativeModeShouldShowCursor())) {
         if (mouse->ShowCursor) {
             mouse->ShowCursor(cursor);
         }
