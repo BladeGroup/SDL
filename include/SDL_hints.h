@@ -294,6 +294,17 @@ extern "C" {
 #define SDL_HINT_MOUSE_RELATIVE_MODE_WARP    "SDL_MOUSE_RELATIVE_MODE_WARP"
 
 /**
+ *  \brief  A variable controlling whether relative mouse mode shows the cursor
+ *
+ *  This variable can be set to the following values:
+ *    "0"       - Relative mouse mode hides the cursor
+ *    "1"       - Relative mouse mode shows the cursor
+ *
+ *  By default SDL will hide the cursor for relative mouse mode
+ */
+#define SDL_HINT_MOUSE_RELATIVE_SHOW_CURSOR    "SDL_MOUSE_RELATIVE_SHOW_CURSOR"
+
+/**
  *  \brief Allow mouse click events when clicking to focus an SDL window
  *
  *  This variable can be set to the following values:
